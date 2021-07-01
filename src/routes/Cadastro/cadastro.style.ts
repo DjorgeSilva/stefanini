@@ -2,12 +2,19 @@ import styled from "styled-components"
 
 export const Container = styled.div`
     width: 100%;
-    height: 100vh;
+    height: fit-content;
+    padding-bottom: 30px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media (min-width: 796px){
+        height: 100vh;
+        padding-bottom: 0;
+    }
+
 
     .wrapper-logo{
         width: 100%;
@@ -50,7 +57,7 @@ export const Container = styled.div`
 
 
             h1{
-                font-size: clamp(1.5rem, 3vw, 2.8rem);
+                font-size: clamp(1.5rem, 3vw, 2.5rem);
                 text-align: center;
             }
 
@@ -66,7 +73,16 @@ export const Container = styled.div`
                 padding-left: 13px; 
 
             }
-            button{
+
+            select{
+                width: 100%;
+                height: 35px;
+                padding-left: 13px; 
+                outline: none;
+            }
+            
+            .botao-cadastrar{
+                width: 100%;
                 height: 35px;
                 margin-top: 25px;
                 background: ${props => props.theme.corPadrao};
@@ -76,6 +92,13 @@ export const Container = styled.div`
 
                 &:hover{
                     background: #000;
+                }
+
+                @media (min-width: 796px){
+                    display: block;
+                    width: 50%;
+                    margin: 0 auto;
+                    margin-top: 25px;
                 }
             }
 
