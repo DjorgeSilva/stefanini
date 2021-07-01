@@ -1,3 +1,5 @@
+import { actionTypes } from "../constants";
+
 export interface userInterface {
     nome: string;
     sexo: string;
@@ -8,6 +10,6 @@ export interface userInterface {
 }
 
 export interface interfaceActionUser{
-    type: string,
+    type: 'adicionar',
     payload: userInterface
 }

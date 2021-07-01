@@ -4,9 +4,25 @@ import logo from "../../assets/img/logo.png"
 //styles
 import * as s from "./login.style"
 //packages
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
+import { useDispatch, useSelector } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { actionCreators } from '../../state'
+import { TypeReducer } from '../../state/combineReducers'
 
 export const Login: React.FC = (): JSX.Element => {
+
+    const dispatch = useDispatch()
+    const { showAction } = bindActionCreators(actionCreators, dispatch)
+
+    const state = useSelector((state: TypeReducer) => state.user)
+
+    const handle = () => {
+        showAction()
+        console.log(state)
+    }
+
+
     return (
         <s.Container className="container">
 
@@ -15,7 +31,7 @@ export const Login: React.FC = (): JSX.Element => {
             </div>
 
             <div className="wrapper-form">
-                <form action="">
+                <form onSubmit={()=> handle()}>
 
                     <h1>Login</h1>
                     <hr />
@@ -34,7 +50,7 @@ export const Login: React.FC = (): JSX.Element => {
                         <p>Ainda não tem conta?</p>
 
                         <Link to="/cadastro">
-                            <button>Cadastrar</button>
+                            <button type="submit">Cadastrar</button>
                         </Link>
                     </div>
                 </form>

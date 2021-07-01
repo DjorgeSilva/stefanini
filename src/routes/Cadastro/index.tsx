@@ -56,17 +56,16 @@ export const Cadastro: React.FC = (): JSX.Element => {
     const handleSubmit = () => {
 
         actionCadastrar({
-            nome,
-            sexo,
-            nacionalidade,
-            naturalidade,
-            email,
-            senha
+            nome: nome,
+            sexo: sexo,
+            nacionalidade: nacionalidade,
+            naturalidade: naturalidade,
+            email: email,
+            senha: senha,
         })
-
-        console.log(state)
-
     }
+
+    console.log(state)
 
 
     return (
@@ -77,7 +76,7 @@ export const Cadastro: React.FC = (): JSX.Element => {
             </div>
 
             <div className="wrapper-form">
-                <form onSubmit={() => handleSubmit()}>
+                <form>
 
                     <h1>Cadastro</h1>
                     <hr />
@@ -120,7 +119,7 @@ export const Cadastro: React.FC = (): JSX.Element => {
                         </Col>
 
                         <Col xs={12}>
-                            <button className="botao-cadastrar">Cadastrar</button>
+                            <button className="botao-cadastrar" onClick={() => handleSubmit}>Cadastrar</button>
                         </Col>
                     </Row>
 
@@ -129,7 +128,7 @@ export const Cadastro: React.FC = (): JSX.Element => {
                     <div className="wrapper-sign-in">
                         <p>Já é cadastrado?</p>
 
-                        <Link to="/">
+                        <Link to="/" >
                             <button type="submit">Login</button>
                         </Link>
                     </div>
