@@ -4,9 +4,10 @@ import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 //styles
 import { GlobalStyles } from './assets/GlobalStyle';
+//components
 import { Login } from './routes/Login';
 import { Cadastro } from './routes/Cadastro';
-//components
+import { User } from './routes/Users';
 
 
 function App() {
@@ -27,9 +28,9 @@ function App() {
           <Login />
         </Route>
 
-        <Route path="/cadastro" exact>
-          <Cadastro />
-        </Route>
+        <Route path="/cadastro" exact component={Cadastro} />
+
+        <Route path="/user" exact component={User} />
 
       </Router >
     )
@@ -42,10 +43,13 @@ function App() {
           <GlobalStyles />
 
           <Switch>
+
             <Route path="/" exact>
               <Login />
             </Route>
+
             <Route component={AuthenticatedRoutes} />
+
           </Switch>
 
         </ThemeProvider>

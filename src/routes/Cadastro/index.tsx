@@ -6,6 +6,10 @@ import * as s from "./cadastro.style"
 //packages
 import { Link } from "react-router-dom"
 import { Row, Col } from "react-bootstrap"
+import { useDispatch, useSelector } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { actionCreators } from '../../state'
+import { TypeReducer } from '../../state/combineReducers'
 
 export const Cadastro: React.FC = (): JSX.Element => {
 
@@ -42,6 +46,28 @@ export const Cadastro: React.FC = (): JSX.Element => {
     const [senhaConfirma, setSenhaConfirma]: [string, (data: string) => void] = React.useState("");
 
 
+    const dispatch = useDispatch()
+    const { actionCadastrar } = bindActionCreators(actionCreators, dispatch)
+
+    const state = useSelector((state: TypeReducer) => state.user)
+
+    console.log(state)
+
+    const handleSubmit = () => {
+
+        actionCadastrar({
+            nome,
+            sexo,
+            nacionalidade,
+            naturalidade,
+            email,
+            senha
+        })
+
+        console.log(state)
+
+    }
+
 
     return (
         <s.Container className="container">
@@ -51,7 +77,7 @@ export const Cadastro: React.FC = (): JSX.Element => {
             </div>
 
             <div className="wrapper-form">
-                <form action="">
+                <form onSubmit={() => handleSubmit()}>
 
                     <h1>Cadastro</h1>
                     <hr />
@@ -59,10 +85,10 @@ export const Cadastro: React.FC = (): JSX.Element => {
                     <Row>
                         <Col xs={12} md={6}>
                             <label htmlFor="nome">Nome</label>
-                            <input type="txt" name="nome" id="nome" onChange={(e)=> setNome(e.target.value)}/>
+                            <input type="txt" name="nome" id="nome" onChange={(e) => setNome(e.target.value)} />
 
                             <label htmlFor="sexo">Sexo</label>
-                            <select name="sexo" id="sexo" onChange={(e)=> setSexo(e.target.value)}>
+                            <select name="sexo" id="sexo" onChange={(e) => setSexo(e.target.value)}>
                                 <option selected disabled>Gênero</option>
                                 <option value="masculino">masculino</option>
                                 <option value="feminino">feminino</option>
@@ -72,24 +98,24 @@ export const Cadastro: React.FC = (): JSX.Element => {
                             <input type="date" name="data-nascimento" id="data-nascimento" />
 
                             <label htmlFor="nacionalidade">Nacionalidade: </label>
-                            <input type="txt" name="nacionalidade" id="nacionalidade" onChange={(e)=> setNacionalidade(e.target.value)}/>
+                            <input type="txt" name="nacionalidade" id="nacionalidade" onChange={(e) => setNacionalidade(e.target.value)} />
 
                         </Col>
 
                         <Col xs={12} md={6}>
 
                             <label htmlFor="naturalidade">Naturalidade: </label>
-                            <input type="txt" name="naturalidade" id="naturalidade" onChange={(e)=> setNaturalidade(e.target.value)}/>
+                            <input type="txt" name="naturalidade" id="naturalidade" onChange={(e) => setNaturalidade(e.target.value)} />
 
                             <label htmlFor="email">E-mail:</label>
-                            <input type="email" name="email" id="email" onChange={(e)=> setEmail(e.target.value)}/>
+                            <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)} />
 
                             <label htmlFor="senha">Senha</label>
-                            <input type="password" name="senha" id="senha" onChange={(e)=> setSenha(e.target.value)}/>
+                            <input type="password" name="senha" id="senha" onChange={(e) => setSenha(e.target.value)} />
 
 
                             <label htmlFor="senha-confirmar">Confirmar senha:</label>
-                            <input type="password" name="senha-confirmar" id="senha-confirmar" onChange={(e)=> setSenhaConfirma(e.target.value)}/>
+                            <input type="password" name="senha-confirmar" id="senha-confirmar" onChange={(e) => setSenhaConfirma(e.target.value)} />
 
                         </Col>
 
@@ -104,7 +130,7 @@ export const Cadastro: React.FC = (): JSX.Element => {
                         <p>Já é cadastrado?</p>
 
                         <Link to="/">
-                            <button>Login</button>
+                            <button type="submit">Login</button>
                         </Link>
                     </div>
 
