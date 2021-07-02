@@ -4,9 +4,9 @@ import { interfaceActionUser, userInterface } from "../interface";
 
 
 export const actionCadastrar = (user: userInterface) => {
-    return ((dispatch: Dispatch<any>) => {
+    return ((dispatch: Dispatch<interfaceActionUser>) => {
         dispatch({
-            type: 'adicionar',
+            type: actionTypes.CADASTRAR,
             payload: user
         })
     })

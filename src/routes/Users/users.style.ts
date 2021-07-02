@@ -71,6 +71,20 @@ export const Container = styled.div`
                     }
                 }
             }
+
+            .wrapper-no-user{
+                width: 90%;
+                padding: 80px 0;
+                border: 1px solid #333;
+                background-color: ${props=> props.theme.corPadrao};
+                color:${props=> props.theme.corBranco};
+                margin-top: 20px;
+                border-radius: 10px;
+            
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
             
         }
 

@@ -49,7 +49,12 @@ export const User: React.FC = (): JSX.Element => {
                                     </div>
                                 </li>
                             )
-                        })}
+                        })
+                        // :
+                        // <div className="wrapper-no-user">
+                        //     <p>Nenhum usuário encontrado!</p>
+                        // </div>
+                    }
                 </ul>
             </div>
 

@@ -138,6 +138,29 @@ export const Container = styled.div`
 
         }
     }
+
+    .wrapper-message{
+        width: 90%;
+        height: 50vh;
+        position: fixed;
+        background: ${props => props.theme.corBranco};
+        box-shadow: 5px 2px 8px 3px #333;
+        border-radius: 10px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        button{
+            margin-top: 30px;
+            background: ${props => props.theme.corPadrao};
+            color: ${props => props.theme.corBranco};
+            padding: 5px 20px;
+            border: none;
+        }
+
+    }
     
 
 `

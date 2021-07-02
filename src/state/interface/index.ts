@@ -10,6 +10,6 @@ export interface userInterface {
 }
 
 export interface interfaceActionUser{
-    type: 'adicionar',
+    type: actionTypes.CADASTRAR,
     payload: userInterface
 }

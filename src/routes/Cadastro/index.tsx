@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actionCreators } from '../../state'
 import { TypeReducer } from '../../state/combineReducers'
+import { userInterface } from '../../state/interface'
 
 export const Cadastro: React.FC = (): JSX.Element => {
 
@@ -45,27 +46,30 @@ export const Cadastro: React.FC = (): JSX.Element => {
     const [senha, setSenha]: [string, (data: string) => void] = React.useState("");
     const [senhaConfirma, setSenhaConfirma]: [string, (data: string) => void] = React.useState("");
 
+    const [message, setMessage]: [boolean, (data: boolean) => void] = React.useState<boolean>(false);
+
 
     const dispatch = useDispatch()
     const { actionCadastrar } = bindActionCreators(actionCreators, dispatch)
 
     const state = useSelector((state: TypeReducer) => state.user)
 
-    console.log(state)
 
-    const handleSubmit = () => {
-
-        actionCadastrar({
-            nome: nome,
-            sexo: sexo,
-            nacionalidade: nacionalidade,
-            naturalidade: naturalidade,
-            email: email,
-            senha: senha,
-        })
+    let user: userInterface = {
+        nome: nome,
+        sexo: sexo,
+        nacionalidade: nacionalidade,
+        naturalidade: naturalidade,
+        email: email,
+        senha: senha,
     }
 
-    console.log(state)
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        setMessage(!message)
+        actionCadastrar(user)
+    }
 
 
     return (
@@ -76,7 +80,7 @@ export const Cadastro: React.FC = (): JSX.Element => {
             </div>
 
             <div className="wrapper-form">
-                <form>
+                <form onSubmit={(e) => handleSubmit(e)}>
 
                     <h1>Cadastro</h1>
                     <hr />
@@ -119,7 +123,7 @@ export const Cadastro: React.FC = (): JSX.Element => {
                         </Col>
 
                         <Col xs={12}>
-                            <button className="botao-cadastrar" onClick={() => handleSubmit}>Cadastrar</button>
+                            <button className="botao-cadastrar" type="submit">Cadastrar</button>
                         </Col>
                     </Row>
 
@@ -132,10 +136,18 @@ export const Cadastro: React.FC = (): JSX.Element => {
                             <button type="submit">Login</button>
                         </Link>
                     </div>
-
-
                 </form>
             </div>
+
+            {message &&
+                <div className="wrapper-message">
+                    <p>Usuário cadastrado com sucesso!</p>
+                    <Link to="/user">
+                        <button onClick={() => setMessage(!message)}>Visualizar</button>
+                    </Link>
+                </div>
+            }
+
 
         </s.Container>
     )
