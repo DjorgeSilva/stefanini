@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/stefanini-website/static/js/main.31b219d5.chunk.js",
+    "main.js.map": "/stefanini-website/static/js/main.31b219d5.chunk.js.map",
+    "runtime-main.js": "/stefanini-website/static/js/runtime-main.fa9054ff.js",
+    "runtime-main.js.map": "/stefanini-website/static/js/runtime-main.fa9054ff.js.map",
+    "static/js/2.c398833d.chunk.js": "/stefanini-website/static/js/2.c398833d.chunk.js",
+    "static/js/2.c398833d.chunk.js.map": "/stefanini-website/static/js/2.c398833d.chunk.js.map",
+    "index.html": "/stefanini-website/index.html",
+    "static/js/2.c398833d.chunk.js.LICENSE.txt": "/stefanini-website/static/js/2.c398833d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fa9054ff.js",
+    "static/js/2.c398833d.chunk.js",
+    "static/js/main.31b219d5.chunk.js"
+  ]
+}
