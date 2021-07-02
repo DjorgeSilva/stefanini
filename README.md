@@ -31,6 +31,21 @@ Open [http://localhost:3000](http://localhost:3000) para visualizar no navegador
  - `react-router-dom`
  - `react-icons` 
 
+
 # Funcionalidade
 
 Tela de Logi, cadastro e visualização de usuários
+
+
+# Tela de Login
+
+Falta terminar a autênticação
+
+# Tela de Cadastro
+
+obrigatório preencher todos os campos,
+CPF: só contém números
+
+# Tela de Usuários:
+
+Visualização de usuários cadastrados
